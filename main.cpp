@@ -2,7 +2,8 @@
 #include <stdio.h>
 #include "libraries/utilities/myassert.h"
 #include "libraries/utilities/utilities.h"
-#include "differentiator.h"
+#include "diskran_killer.h"
+#include "operators.h"
 
 int main(int argc, const char *argv[])
 {
@@ -30,14 +31,13 @@ int main(int argc, const char *argv[])
 
     TREE_CONSTRUCTOR(tree_pointer);
 
-    // input_tree_from_database(file_input, tree_pointer);
+    input_tree_from_database(file_input, tree_pointer);
 
-    printf("%g\n", calcucalate_node(tree_pointer->root, tree_pointer->variable_array));
+    truth_table_info *truth_table = truth_table_constructor(tree_pointer);
 
-    tree_pointer->root = get_g("1+0->1<->0<->-(-1)");
-    // printf("%d\n", x);
+    print_dnf_form(file_output, truth_table, tree_pointer->variable_array, tree_pointer->variable_array_position);
 
-    print_node(file_output, tree_pointer->root, tree_pointer->variable_array, tree_pointer->root);
+    truth_table_destructor(truth_table);
 
     tree_destructor(tree_pointer);
 

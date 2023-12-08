@@ -7,7 +7,7 @@
 #include "libraries/stack/stack.h"
 #include "libraries/onegin/onegin.h"
 #include "libraries/utilities/utilities.h"
-#include "differentiator.h"
+#include "diskran_killer.h"
 #include "dsl.h"
 
 FILE *Global_logs_pointer_tree  = stderr;
@@ -90,7 +90,7 @@ void delete_node(tree_node *tree_node_pointer)
     free(tree_node_pointer);
 }
 
-tree_node *create_node(type_node type, value_node value, tree_node *tree_node_left, tree_node *tree_node_right)
+tree_node *create_node(operator_type type, value_node value, tree_node *tree_node_left, tree_node *tree_node_right)
 {
     tree_node *tree_node_pointer = new_tree_node();
 
