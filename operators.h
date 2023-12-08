@@ -29,11 +29,11 @@ enum operators_index {
 };
 
 const operator_parametrs OPERATORS[] = {[IMPLICATION] = {"→", true,   apply_implication, 2},
-                                        [EQUIVALENCE] = {"≡", true,   apply_equivalence, 3},
+                                        [EQUIVALENCE] = {"~", true,   apply_equivalence, 3},
                                         [NEGATION]    = {"¬", false,  apply_negation, 3},
-                                        [XOR]         = {"⊕", true,   apply_xor, 2},
-                                        [DISJUNCTION] = {"∨", true,   apply_disjunction, 1},
-                                        [CONJUNCTION] = {"∧", true,   apply_conjunction, 1}};
+                                        [XOR]         = {"+", true,   apply_xor, 2},
+                                        [DISJUNCTION] = {"v", true,   apply_disjunction, 1},
+                                        [CONJUNCTION] = {"^", true,   apply_conjunction, 1}};
 
 #endif //OPERATORS_H_INCLUDED
 
